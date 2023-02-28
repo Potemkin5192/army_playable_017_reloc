@@ -19,7 +19,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"index_atlas_P_", frames: [[710,2174,357,285],[1069,2374,554,153],[0,0,766,765],[1086,2160,636,212],[0,1673,600,300],[1270,0,600,300],[768,604,600,300],[1370,604,600,300],[0,1069,600,300],[1204,906,600,300],[1270,302,600,300],[0,767,600,300],[602,906,600,300],[1204,1510,600,300],[602,1510,600,300],[0,1371,600,300],[1204,1208,600,300],[602,1208,600,300],[1086,1812,449,346],[376,2174,332,326],[0,1975,374,346],[1537,1812,431,328],[602,1812,482,360],[0,2323,349,265],[768,0,500,426],[1724,2142,290,196]]},
+		{name:"index_atlas_P_", frames: [[710,2174,357,285],[1069,2374,554,153],[0,0,766,765],[1086,2160,636,212],[1270,0,600,300],[768,604,600,300],[1270,302,600,300],[1370,604,600,300],[1204,1510,600,300],[602,1510,600,300],[0,1069,600,300],[0,1673,600,300],[0,767,600,300],[602,906,600,300],[602,1208,600,300],[1204,906,600,300],[0,1371,600,300],[1204,1208,600,300],[1086,1812,449,346],[376,2174,332,326],[0,1975,374,346],[1537,1812,431,328],[602,1812,482,360],[0,2323,349,265],[768,0,500,426],[1724,2142,290,196]]},
 		{name:"index_atlas_NP_", frames: [[0,1230,1221,1221],[0,0,1228,1228],[1223,1230,1024,1024],[1230,0,1024,1024]]}
 ];
 // symbols:
@@ -715,44 +715,6 @@ p.nominalBounds = new cjs.Rectangle(-692.3,-348,1387.4,693.7);
 	this.timeline.addTween(cjs.Tween.get(this.button).wait(2).to({y:37.95},14,cjs.Ease.backOut).wait(2).to({y:475.15},13,cjs.Ease.backIn).wait(1));
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-359.9,-99.3,719.7,647.1999999999999);
-(lib.infirmary = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
-	// timeline functions:
-	this.frame_0 = function() {
-		this.stop();
-	}
-	this.frame_15 = function() {
-		this.stop();
-		window.dispatchEvent(new Event('chekcCounter'));
-	}
-	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(15).call(this.frame_15).wait(1));
-	// hitarea
-	this.instance = new lib.hitArea();
-	this.instance.parent = this;
-	this.instance.setTransform(0.35,-0.3,0.8483,0.8483,0,0,180,0,-0.1);
-	new cjs.ButtonHelper(this.instance, 0, 1, 2, false, new lib.hitArea(), 3);
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:true},1).wait(15));
-	// cross2
-	this.hospitalCross = new lib.cross2();
-	this.hospitalCross.name = "hospitalCross";
-	this.hospitalCross.parent = this;
-	this.hospitalCross.setTransform(4.1,-5.35,0.3349,0.3338,0,0,4.5861,175.1,-194.3);
-	this.timeline.addTween(cjs.Tween.get(this.hospitalCross).to({_off:true},1).wait(15));
-	// effect
-	this.instance_1 = new lib.appear_FX("synched",0);
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(1.3,-1.5,2.3123,2.3123,0,0,0,0,-0.1);
-	this.instance_1._off = true;
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1).to({_off:false},0).to({_off:true},14).wait(1));
-	// Layer_1
-	this.instance_2 = new lib.Layer6();
-	this.instance_2.parent = this;
-	this.instance_2.setTransform(-104.5,-79.35,0.599,0.599);
-	this.instance_2._off = true;
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(4).to({_off:false},0).wait(12));
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-692.3,-348,1387.4,693.7);
 (lib.garage = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 	// timeline functions:
@@ -814,11 +776,10 @@ p.nominalBounds = new cjs.Rectangle(-692.3,-348,1387.4,693.7);
 (lib.base_2 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 	// infirmary
-	this.infirmary = new lib.infirmary();
-	this.infirmary.name = "infirmary";
-	this.infirmary.parent = this;
-	this.infirmary.setTransform(144.5,262.35);
-	this.timeline.addTween(cjs.Tween.get(this.infirmary).wait(1));
+	this.instance = new lib.Layer6();
+	this.instance.parent = this;
+	this.instance.setTransform(40,182,0.599,0.599);
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 	// barracks
 	this.barracks = new lib.barracks();
 	this.barracks.name = "barracks";
@@ -850,10 +811,10 @@ p.nominalBounds = new cjs.Rectangle(-692.3,-348,1387.4,693.7);
 	this.training_low.setTransform(188.45,-21.35);
 	this.timeline.addTween(cjs.Tween.get(this.training_low).wait(1));
 	// base_2_noupgraded.jpg
-	this.instance = new lib.base_2_noupgraded();
-	this.instance.parent = this;
-	this.instance.setTransform(-614,-614);
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this.instance_1 = new lib.base_2_noupgraded();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(-614,-614);
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
 }).prototype = getMCSymbolPrototype(lib.base_2, new cjs.Rectangle(-614,-614,1228,1228), null);
 (lib.background = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
@@ -963,12 +924,12 @@ p.nominalBounds = new cjs.Rectangle(-2048,-2048,4096,4096);
 		var counter = 0;
 		var garage = main.base1.garage;
 		var barracks = main.base2.barracks;
-		var infirmary = main.base2.infirmary;
+		//var infirmary = main.base2.infirmary;
 		var training_low = main.base2.training_low;
 		var shooting_low = main.base2.shooting_low;
 		var training_high = main.base2.training_high;
 		var shooting_high = main.base2.shooting_high;
-		var rooms = [garage, barracks, infirmary, training_low, training_high, shooting_low, shooting_high];
+		var rooms = [garage, barracks, training_low, training_high, shooting_low, shooting_high];
 		for (var i = 0; i < rooms.length; i++) {
 			rooms[i].clickable = true;
 			rooms[i].on('click', roomClick.bind(this));
@@ -996,7 +957,7 @@ p.nominalBounds = new cjs.Rectangle(-2048,-2048,4096,4096);
 			}
 		}
 		window.addEventListener('chekcCounter', function () {
-			if (counter >= 7) {
+			if (counter >= 6) {
 				button.gotoAndPlay(1);
 				button.removeEventListener('click', goToNextBase);
 				button.addEventListener('click', callToAction);
@@ -1061,8 +1022,8 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"index_atlas_P_.png?1677509058918", id:"index_atlas_P_"},
-		{src:"index_atlas_NP_.jpg?1677509058918", id:"index_atlas_NP_"}
+		{src:"index_atlas_P_.png?1677580443815", id:"index_atlas_P_"},
+		{src:"index_atlas_NP_.jpg?1677580443816", id:"index_atlas_NP_"}
 	],
 	preloads: []
 };
